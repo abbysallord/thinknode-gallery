@@ -1,0 +1,52 @@
+[
+  {
+    "label": "Dashboard",
+    "href": "/dashboard",
+    "icon": "IconLayoutDashboard"
+  },
+  {
+    "label": "Pest Detection",
+    "href": "/dashboard/pest-detection",
+    "icon": "IconBug"
+  },
+  {
+    "label": "Soil Analysis",
+    "href": "/dashboard/soil-analysis",
+    "icon": "IconLeaf"
+  },
+  {
+    "label": "Weather",
+    "href": "/dashboard/weather",
+    "icon": "IconCloudStorm"
+  },
+  {
+    "label": "Market Price",
+    "href": "/dashboard/market-price",
+    "icon": "IconChartInfographic"
+  },
+  {
+    "label": "Govt Schemes",
+    "href": "/dashboard/schemes",
+    "icon": "IconBuildingBank"
+  },
+  {
+    "label": "Agri Store",
+    "href": "/dashboard/store",
+    "icon": "IconShoppingBag"
+  },
+  {
+    "label": "Community",
+    "href": "/dashboard/community",
+    "icon": "IconUsers"
+  },
+  {
+    "label": "Farm Reports",
+    "href": "/dashboard/reports",
+    "icon": "IconReportAnalytics"
+  },
+  {
+    "label": "Profile",
+    "href": "/dashboard/profile",
+    "icon": "IconUserCircle"
+  }
+]

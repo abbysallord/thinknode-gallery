@@ -1,0 +1,143 @@
+"use client";
+import React, { useState } from "react";
+import { Sidebar, SidebarBody, SidebarLink } from "@/components/ui/sidebar";
+import {
+  IconLeaf,
+  IconBug,
+  IconCloudStorm,
+  IconChartInfographic,
+  IconBuildingBank,
+  IconShoppingBag,
+  IconUsers,
+  IconReportAnalytics,
+  IconUserCircle,
+  IconLogout,
+  IconLayoutDashboard
+} from "@tabler/icons-react";
+import Link from "next/link";
+import { motion } from "motion/react";
+import { cn } from "@/lib/utils";
+import { useRouter } from "next/navigation";
+
+export function AgroSidebar() {
+  const [open, setOpen] = useState(false);
+  const router = useRouter();
+
+  const links = [
+    {
+      label: "Dashboard",
+      href: "/dashboard",
+      icon: (
+        <IconLayoutDashboard className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+      ),
+    },
+    {
+      label: "Pest Detection",
+      href: "/dashboard/pest-detection",
+      icon: (
+        <IconBug className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+      ),
+    },
+    {
+      label: "Soil Analysis",
+      href: "/dashboard/soil-analysis",
+      icon: (
+        <IconLeaf className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+      ),
+    },
+    {
+      label: "Weather",
+      href: "/dashboard/weather",
+      icon: (
+        <IconCloudStorm className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+      ),
+    },
+    {
+      label: "Market Price",
+      href: "/dashboard/market-price",
+      icon: (
+        <IconChartInfographic className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+      ),
+    },
+    {
+      label: "Govt Schemes",
+      href: "/dashboard/schemes",
+      icon: (
+        <IconBuildingBank className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+      ),
+    },
+    {
+      label: "Agri Store",
+      href: "/dashboard/store",
+      icon: (
+        <IconShoppingBag className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+      ),
+    },
+    {
+      label: "Community",
+      href: "/dashboard/community",
+      icon: (
+        <IconUsers className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+      ),
+    },
+    {
+      label: "Farm Reports",
+      href: "/dashboard/reports",
+      icon: (
+        <IconReportAnalytics className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+      ),
+    },
+    {
+      label: "Profile",
+      href: "/dashboard/profile",
+      icon: (
+        <IconUserCircle className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+      ),
+    },
+  ];
+
+  return (
+    <Sidebar open={open} setOpen={setOpen}>
+      <SidebarBody className="justify-between gap-10">
+        <div className="flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
+          <div className="flex flex-col">
+              <Logo />
+          </div>
+          <div className="mt-8 flex flex-col gap-2">
+            {links.map((link, idx) => (
+              <SidebarLink key={idx} link={link} />
+            ))}
+          </div>
+        </div>
+        <div>
+          <SidebarLink
+            link={{
+              label: "Sign Out",
+              href: "#",
+              icon: <IconLogout className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />,
+            }}
+             onClick={() => router.push("/")}
+          />
+        </div>
+      </SidebarBody>
+    </Sidebar>
+  );
+}
+
+export const Logo = () => {
+  return (
+    <Link
+      href="/dashboard"
+      className="font-normal flex space-x-2 items-center text-sm text-black py-1 relative z-20"
+    >
+      <div className="h-6 w-6 bg-gradient-to-br from-green-500 to-emerald-700 rounded-full flex-shrink-0" />
+      <motion.span
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className="font-bold text-lg text-black dark:text-white whitespace-pre"
+      >
+        AgroNova
+      </motion.span>
+    </Link>
+  );
+};
